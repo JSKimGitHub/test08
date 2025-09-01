@@ -3,6 +3,7 @@ import 'package:test0819/screen/column/column_practice_screen.dart';
 import 'package:test0819/screen/column/column_screen.dart';
 import 'package:test0819/screen/container/container_practice_screen.dart';
 import 'package:test0819/screen/container/container_screen.dart';
+import 'package:test0819/screen/getx/getx_screen.dart';
 import 'package:test0819/screen/image/image_screen_practice.dart';
 import 'package:test0819/screen/image/image_screen.dart';
 import 'package:test0819/screen/network/network_screen.dart';
@@ -20,6 +21,9 @@ import 'package:test0819/screen/stateful/stateful_screen.dart';
 import 'package:test0819/screen/navigator/navigator_screen.dart';
 import 'scrollview/listview_practice_screen.dart';
 import 'package:test0819/screen/todo/todo_screen.dart';
+import 'package:test0819/screen/future/future_screen.dart';
+import 'package:test0819/screen/news/news.dart';
+import 'package:test0819/screen/getx/getx_screen.dart';
 
 class ButtonScreen extends StatelessWidget {
   const ButtonScreen({super.key});
@@ -241,6 +245,12 @@ class ButtonScreen extends StatelessWidget {
               button(context, TodoScreen(), "Todo"),
               SizedBox(height: 10),
               button(context, NetworkScreen(), "Network"),
+              SizedBox(height: 10),
+              button(context, FutureScreen(), "Future"),
+              SizedBox(height: 10),
+              button(context, NewsScreen(), "News"),
+              SizedBox(height: 10),
+              button(context, GetxScreen(), "Getx"),
             ],
           ),
         ),

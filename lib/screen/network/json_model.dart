@@ -1,26 +1,31 @@
-class JsonModel{
+class JsonModel {
   String id;
   int number;
-
   Info? info;
-  JsonModel(this.id, this.number, this.info);
+  List<Framework> frameworks;
 
-  factory JsonModel.fromJson(Map<String,dynamic> json){
+  JsonModel(this.id, this.number, this.info, this.frameworks);
+
+  factory JsonModel.fromJson(Map<String, dynamic> json){
     return JsonModel(
       json['id'] ?? '',
       json['number'] ?? 0,
-      json['info'] == null
-        ? null
-        : Info.fromJson(json['info']),
+      json['info'] == null ? null : Info.fromJson(json['info']),
+      json['framework'] == null ? [] : json['framework'] == null
+          ? []
+          : (json['framework'] as Iterable)
+          .map((e) => Framework.fromJson(e))
+          .toList(),
     );
   }
+
+
   @override
   String toString() {
-    return 'JsonModel{id: $id, number: $number, info: $info}';
+    return 'JsonModel{id: $id, number: $number, info: $info, frameworks: $frameworks}';
   }
 }
-
-class Info{
+  class Info{
   int age;
   double weight;
   String name;
@@ -62,3 +67,25 @@ class Description{
 
 
 }
+
+class Framework {
+  String email;
+  String platform;
+
+  Framework(this.email, this.platform);
+
+  factory Framework.fromJson(Map<String, dynamic> json){
+    return Framework(
+      json['email'] ?? '',
+      json['platform'] ?? ''
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Framework{email: $email, platform: $platform}';
+  }
+}
+
+
+
